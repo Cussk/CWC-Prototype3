@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10; //variable how high jump is
     public float gravityModifier; //variable adjust level of gravity
     public bool isOnGround = true; //variable checks is player is on the ground
+    public bool gameOver = false; //gameover true or false
 
     private Rigidbody playerRB; //variable for rigidbody component
 
@@ -28,9 +29,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //when player collides with ground switch isOnGround back to true 
+    //checks collisions with player
     private void OnCollisionEnter(Collision collision) 
     {
-        isOnGround = true;    
+        //if player collides with ground switch isOnGround back to true 
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true; //changes isOnGround to true
+        } 
+        //if player collides with obstacle game over
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;//changes gameOver to true
+            Debug.Log("Game Over"); //logs Game Over to console
+        }
     }
 }

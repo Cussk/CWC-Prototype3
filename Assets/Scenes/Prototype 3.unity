@@ -312,6 +312,8 @@ GameObject:
   - component: {fileID: 835818921}
   - component: {fileID: 835818920}
   - component: {fileID: 835818922}
+  - component: {fileID: 835818923}
+  - component: {fileID: 835818924}
   m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
@@ -398,6 +400,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f975a1ffd097e4840afa95d7c195628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &835818923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412c2dacc24359b4fb5694214818dd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &835818924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.79999, y: 18.781641, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1307630262
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31fa5e4e5c3d5446901c9df358971e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefaf: {fileID: 9171366424119771501, guid: f73d1263ef26ae74a9b2163ecb9493f5, type: 3}
+  obstaclePrefab: {fileID: 9171366424119771501, guid: f73d1263ef26ae74a9b2163ecb9493f5, type: 3}
 --- !u!4 &1307630264
 Transform:
   m_ObjectHideFlags: 0
@@ -457,7 +484,7 @@ GameObject:
   - component: {fileID: 2014335012}
   m_Layer: 9
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,6 +578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -614,9 +645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23aaf2c0658c3d44bb9a765dec460a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 19
-  gravityModifier: 2
+  jumpForce: 9
+  gravityModifier: 1
   isOnGround: 1
+  gameOver: 0
 --- !u!65 &2081950480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -644,5 +676,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
