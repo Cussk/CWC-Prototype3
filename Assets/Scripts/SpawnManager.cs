@@ -5,12 +5,13 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     //public variables
-    public GameObject obstaclePrefab;
+    public GameObject[] obstaclePrefabs; //obstacle array
 
     //private variables
-    private Vector3 spawnPos = new Vector3(25, 0, 0); //spawn position x-axis 25, y 0, z 0
     private float startDelay = 2;
     private float repeatRate = 2;
+    private int randomObstacle;
+    private Vector3 spawnPos = new Vector3(25, 0, 0); //spawn position x-axis 25, y 0, z 0
     private PlayerController playerControllerScript; //references PlayerController script
 
     // Start is called before the first frame update
@@ -32,10 +33,12 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {
         //if gameOver variable false, spawn obstacles
-        if(playerControllerScript.gameOver == false)
+        if(!playerControllerScript.gameOver)
         {
-        //spawns obstacle
-        Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            //random index
+            randomObstacle = Random.Range(0, obstaclePrefabs.Length);
+            //spawns random obstacle
+            Instantiate(obstaclePrefabs[randomObstacle], spawnPos, obstaclePrefabs[randomObstacle].transform.rotation);
         }
     }
 }

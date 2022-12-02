@@ -22,7 +22,16 @@ public class MoveLeft : MonoBehaviour
         //if gameOver varaible from PlayerController script is false, move scene left
         if (playerControllerScript.gameOver == false)
         {
-        transform.Translate(Vector3.left * Time.deltaTime * speed); //move object left along x-axis
+            //if double speed move scene 2 times as fast, else move normally
+            if (playerControllerScript.doubleSpeed)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * (speed * 2)); //move object left along x-axis at twice speed
+            }
+            else
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * speed); //move object left along x-axis
+            }
+        
         }
 
         //if object is less than leftBound AND is an Obstacle object
